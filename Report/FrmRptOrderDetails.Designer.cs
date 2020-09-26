@@ -36,14 +36,9 @@
             this.documentViewer1 = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             this.documentViewerBarManager1 = new DevExpress.XtraPrinting.Preview.DocumentViewerBarManager(this.components);
             this.previewBar1 = new DevExpress.XtraPrinting.Preview.PreviewBar();
-            this.bbiDocumentMap = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiParameters = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
-            this.bbiThumbnails = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
-            this.bbiFind = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiHighlightEditingFields = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiCustomize = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
-            this.bbiOpen = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
-            this.bbiSave = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiPrint = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiPrintDirect = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiPageSetup = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
@@ -76,6 +71,10 @@
             this.printPreviewStaticItem2 = new DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem();
             this.zoomTrackBarEditItem1 = new DevExpress.XtraPrinting.Preview.ZoomTrackBarEditItem();
             this.repositoryItemZoomTrackBar1 = new DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar();
+            this.bbiDocumentMap = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
+            this.bbiFind = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
+            this.bbiOpen = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
+            this.bbiSave = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.miFile = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
             this.miView = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
             this.miPageLayout = new DevExpress.XtraPrinting.Preview.PrintPreviewSubItem();
@@ -134,9 +133,9 @@
             // 
             this.panel2.Controls.Add(this.documentViewer1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 24);
+            this.panel2.Location = new System.Drawing.Point(0, 53);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 376);
+            this.panel2.Size = new System.Drawing.Size(800, 347);
             this.panel2.TabIndex = 3;
             // 
             // documentViewer1
@@ -147,12 +146,12 @@
             this.documentViewer1.Location = new System.Drawing.Point(0, 0);
             this.documentViewer1.Name = "documentViewer1";
             this.documentViewer1.ShowPageMargins = false;
-            this.documentViewer1.Size = new System.Drawing.Size(800, 376);
+            this.documentViewer1.Size = new System.Drawing.Size(800, 347);
             this.documentViewer1.TabIndex = 0;
-            this.documentViewer1.UseWaitCursor = true;
             // 
             // documentViewerBarManager1
             // 
+            this.documentViewerBarManager1.AllowCustomization = false;
             this.documentViewerBarManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.previewBar1});
             this.documentViewerBarManager1.DockControls.Add(this.barDockControlTop);
@@ -170,7 +169,6 @@
             this.zoomTrackBarEditItem1,
             this.bbiDocumentMap,
             this.bbiParameters,
-            this.bbiThumbnails,
             this.bbiFind,
             this.bbiHighlightEditingFields,
             this.bbiCustomize,
@@ -222,6 +220,7 @@
             this.printPreviewBarCheckItem17,
             this.printPreviewBarCheckItem18,
             this.printPreviewBarCheckItem19});
+            this.documentViewerBarManager1.MainMenu = this.previewBar1;
             this.documentViewerBarManager1.MaxItemId = 59;
             this.documentViewerBarManager1.PreviewBar = this.previewBar1;
             this.documentViewerBarManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -237,14 +236,9 @@
             this.previewBar1.DockRow = 0;
             this.previewBar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.previewBar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiDocumentMap),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiParameters),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiThumbnails),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiFind),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiHighlightEditingFields),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiCustomize, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiOpen, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSave),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiPrint, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiPrintDirect),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiPageSetup),
@@ -265,17 +259,12 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiExportFile, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiSendFile),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiClosePreview, true)});
+            this.previewBar1.OptionsBar.AllowQuickCustomization = false;
+            this.previewBar1.OptionsBar.DisableCustomization = true;
+            this.previewBar1.OptionsBar.DrawBorder = false;
+            this.previewBar1.OptionsBar.MultiLine = true;
+            this.previewBar1.OptionsBar.UseWholeRow = true;
             this.previewBar1.Text = "Toolbar";
-            // 
-            // bbiDocumentMap
-            // 
-            this.bbiDocumentMap.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.bbiDocumentMap.Caption = "Document Map";
-            this.bbiDocumentMap.Command = DevExpress.XtraPrinting.PrintingSystemCommand.DocumentMap;
-            this.bbiDocumentMap.Enabled = false;
-            this.bbiDocumentMap.Hint = "Document Map";
-            this.bbiDocumentMap.Id = 5;
-            this.bbiDocumentMap.Name = "bbiDocumentMap";
             // 
             // bbiParameters
             // 
@@ -286,26 +275,6 @@
             this.bbiParameters.Hint = "Parameters";
             this.bbiParameters.Id = 6;
             this.bbiParameters.Name = "bbiParameters";
-            // 
-            // bbiThumbnails
-            // 
-            this.bbiThumbnails.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.bbiThumbnails.Caption = "Thumbnails";
-            this.bbiThumbnails.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Thumbnails;
-            this.bbiThumbnails.Enabled = false;
-            this.bbiThumbnails.Hint = "Thumbnails";
-            this.bbiThumbnails.Id = 7;
-            this.bbiThumbnails.Name = "bbiThumbnails";
-            // 
-            // bbiFind
-            // 
-            this.bbiFind.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.bbiFind.Caption = "Search";
-            this.bbiFind.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Find;
-            this.bbiFind.Enabled = false;
-            this.bbiFind.Hint = "Search";
-            this.bbiFind.Id = 8;
-            this.bbiFind.Name = "bbiFind";
             // 
             // bbiHighlightEditingFields
             // 
@@ -325,24 +294,6 @@
             this.bbiCustomize.Hint = "Customize";
             this.bbiCustomize.Id = 10;
             this.bbiCustomize.Name = "bbiCustomize";
-            // 
-            // bbiOpen
-            // 
-            this.bbiOpen.Caption = "Open";
-            this.bbiOpen.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Open;
-            this.bbiOpen.Enabled = false;
-            this.bbiOpen.Hint = "Open a document";
-            this.bbiOpen.Id = 11;
-            this.bbiOpen.Name = "bbiOpen";
-            // 
-            // bbiSave
-            // 
-            this.bbiSave.Caption = "Save";
-            this.bbiSave.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Save;
-            this.bbiSave.Enabled = false;
-            this.bbiSave.Hint = "Save the document";
-            this.bbiSave.Id = 12;
-            this.bbiSave.Name = "bbiSave";
             // 
             // bbiPrint
             // 
@@ -548,7 +499,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.documentViewerBarManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(800, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(800, 53);
             // 
             // barDockControlBottom
             // 
@@ -562,17 +513,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 53);
             this.barDockControlLeft.Manager = this.documentViewerBarManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 426);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 397);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(800, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(800, 53);
             this.barDockControlRight.Manager = this.documentViewerBarManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 426);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 397);
             // 
             // printPreviewStaticItem1
             // 
@@ -637,6 +588,44 @@
             this.repositoryItemZoomTrackBar1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.repositoryItemZoomTrackBar1.Maximum = 180;
             this.repositoryItemZoomTrackBar1.Name = "repositoryItemZoomTrackBar1";
+            // 
+            // bbiDocumentMap
+            // 
+            this.bbiDocumentMap.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.bbiDocumentMap.Caption = "Document Map";
+            this.bbiDocumentMap.Command = DevExpress.XtraPrinting.PrintingSystemCommand.DocumentMap;
+            this.bbiDocumentMap.Enabled = false;
+            this.bbiDocumentMap.Hint = "Document Map";
+            this.bbiDocumentMap.Id = 5;
+            this.bbiDocumentMap.Name = "bbiDocumentMap";
+            // 
+            // bbiFind
+            // 
+            this.bbiFind.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.bbiFind.Caption = "Search";
+            this.bbiFind.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Find;
+            this.bbiFind.Enabled = false;
+            this.bbiFind.Hint = "Search";
+            this.bbiFind.Id = 8;
+            this.bbiFind.Name = "bbiFind";
+            // 
+            // bbiOpen
+            // 
+            this.bbiOpen.Caption = "Open";
+            this.bbiOpen.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Open;
+            this.bbiOpen.Enabled = false;
+            this.bbiOpen.Hint = "Open a document";
+            this.bbiOpen.Id = 11;
+            this.bbiOpen.Name = "bbiOpen";
+            // 
+            // bbiSave
+            // 
+            this.bbiSave.Caption = "Save";
+            this.bbiSave.Command = DevExpress.XtraPrinting.PrintingSystemCommand.Save;
+            this.bbiSave.Enabled = false;
+            this.bbiSave.Hint = "Save the document";
+            this.bbiSave.Id = 12;
+            this.bbiSave.Name = "bbiSave";
             // 
             // miFile
             // 
@@ -915,7 +904,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FrmRptOrderDetails";
             this.ShowIcon = false;
-            this.Text = "FrmRptOrderDetails";
+            this.Text = "Order Details Report";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -938,7 +927,6 @@
         private DevExpress.XtraPrinting.Preview.PreviewBar previewBar1;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiDocumentMap;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiParameters;
-        private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiThumbnails;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiFind;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiHighlightEditingFields;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiCustomize;
