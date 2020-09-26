@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraReports.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using xReport.Report;
+using xReport.Service;
 
 namespace xReport
 {
@@ -15,6 +18,19 @@ namespace xReport
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            IProductService service = new ProductService();
+            var products = service.GetProductsByOrder(10248);
+
+            FrmRptOrderDetails frmReport = new FrmRptOrderDetails(products);
+            frmReport.ShowDialog();
+
+            //rptOrderDetails report = new rptOrderDetails();
+            //report.Load(products);
+            //report.ShowPreviewDialog();
         }
     }
 }
