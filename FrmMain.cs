@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using xReport.Data;
 using xReport.Report;
 using xReport.Service;
 
@@ -20,17 +21,52 @@ namespace xReport
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            IProductService service = new ProductService();
-            var products = service.GetProductsByOrder(10248);
+            button1.Enabled = false;
 
-            FrmRptOrderDetails frmReport = new FrmRptOrderDetails(products);
-            frmReport.ShowDialog();
+            await Task.Run(() =>
+            {
+                //Get data
+                IProductService service = new ProductService();
+                var products = service.GetProductsByOrder(10248);
 
-            //rptOrderDetails report = new rptOrderDetails();
-            //report.Load(products);
-            //report.ShowPreviewDialog();
+                //Create report
+                rptOrderDetails report = new rptOrderDetails();
+                report.Load(products);
+
+                //Show form report
+                FrmReportDefault frmReport = new FrmReportDefault(report);
+                frmReport.ShowDialog();
+            });
+
+            button1.Enabled = true;
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            button2.Enabled = false;
+
+            await Task.Run(() =>
+            {
+                //Get data
+                ICustomerService service = new CustomerService();
+                var customer = service.GetCustomerById("ANATR");
+
+                var customers = new List<Customer>();
+
+                customers.Add(customer);
+
+                //Create report
+                rptCustomer report = new rptCustomer();
+                report.Load(service.GetCustomers());
+
+                //Show form report
+                FrmReportDefault frmReport = new FrmReportDefault(report);
+                frmReport.ShowDialog();
+            });
+
+            button2.Enabled = true;
         }
     }
 }

@@ -36,6 +36,7 @@
     <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -45,6 +46,7 @@
     <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v20.1.UI, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -131,11 +133,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\FrmRptOrderDetails.cs">
+    <Compile Include="Report\FrmReportDefault.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report\FrmRptOrderDetails.Designer.cs">
-      <DependentUpon>FrmRptOrderDetails.cs</DependentUpon>
+    <Compile Include="Report\FrmReportDefault.Designer.cs">
+      <DependentUpon>FrmReportDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rptCustomer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rptCustomer.Designer.cs">
+      <DependentUpon>rptCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\XtraReportBase.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\rptOrderDetails.cs">
       <SubType>Component</SubType>
@@ -143,6 +154,8 @@
     <Compile Include="Report\rptOrderDetails.Designer.cs">
       <DependentUpon>rptOrderDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Service\CustomerService.cs" />
+    <Compile Include="Service\ICustomerService.cs" />
     <Compile Include="Service\IProductService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <EmbeddedResource Include="FrmMain.resx">
@@ -158,8 +171,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report\FrmRptOrderDetails.resx">
-      <DependentUpon>FrmRptOrderDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Report\FrmReportDefault.resx">
+      <DependentUpon>FrmReportDefault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptCustomer.resx">
+      <DependentUpon>rptCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\rptOrderDetails.resx">
       <DependentUpon>rptOrderDetails.cs</DependentUpon>
@@ -172,6 +188,7 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\xReport.Data.Customer.datasource" />
     <None Include="Properties\DataSources\xReport.Data.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
