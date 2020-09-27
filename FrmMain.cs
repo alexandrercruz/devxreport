@@ -1,11 +1,6 @@
-﻿using DevExpress.XtraReports.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using xReport.Data;
@@ -36,7 +31,7 @@ namespace xReport
                 report.Load(products);
 
                 //Show form report
-                FrmReportDefault frmReport = new FrmReportDefault(report);
+                FrmReportDefault frmReport = new FrmReportDefault(report, "Order Details Report");
                 frmReport.ShowDialog();
             });
 
@@ -47,26 +42,43 @@ namespace xReport
         {
             button2.Enabled = false;
 
-            await Task.Run(() =>
+            await StartSTATask<dynamic>(() =>
             {
                 //Get data
                 ICustomerService service = new CustomerService();
-                var customer = service.GetCustomerById("ANATR");
-
-                var customers = new List<Customer>();
-
-                customers.Add(customer);
+                var customers = service.GetCustomers();
 
                 //Create report
                 rptCustomer report = new rptCustomer();
-                report.Load(service.GetCustomers());
+                report.Load(customers);
 
                 //Show form report
-                FrmReportDefault frmReport = new FrmReportDefault(report);
+                FrmReportDefault frmReport = new FrmReportDefault(report, "Customer Details Report");
                 frmReport.ShowDialog();
+
+                return null;
             });
 
             button2.Enabled = true;
+        }
+
+        private static Task<T> StartSTATask<T>(Func<T> func)
+        {
+            var tcs = new TaskCompletionSource<T>();
+            Thread thread = new Thread(() =>
+            {
+                try
+                {
+                    tcs.SetResult(func());
+                }
+                catch (Exception e)
+                {
+                    tcs.SetException(e);
+                }
+            });
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            return tcs.Task;
         }
     }
 }

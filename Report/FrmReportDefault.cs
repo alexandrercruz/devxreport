@@ -6,8 +6,9 @@ namespace xReport.Report
 {
     public partial class FrmReportDefault : Form
     {
-        public FrmReportDefault(XtraReport report)
+        public FrmReportDefault(XtraReport report, string title = "Report")
         {
+            Text = title;
             InitializeComponent();
             documentViewer1.DocumentSource = report;
         }

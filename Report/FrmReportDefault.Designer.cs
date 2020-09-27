@@ -58,7 +58,6 @@
             this.bbiFillBackground = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiWatermark = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiExportFile = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
-            this.bbiSendFile = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.bbiClosePreview = new DevExpress.XtraPrinting.Preview.PrintPreviewBarItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -192,7 +191,6 @@
             this.bbiFillBackground,
             this.bbiWatermark,
             this.bbiExportFile,
-            this.bbiSendFile,
             this.bbiClosePreview,
             this.miFile,
             this.miView,
@@ -257,7 +255,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiFillBackground),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiWatermark),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiExportFile, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSendFile),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiClosePreview, true)});
             this.previewBar1.OptionsBar.AllowQuickCustomization = false;
             this.previewBar1.OptionsBar.DisableCustomization = true;
@@ -474,16 +471,6 @@
             this.bbiExportFile.Id = 30;
             this.bbiExportFile.Name = "bbiExportFile";
             // 
-            // bbiSendFile
-            // 
-            this.bbiSendFile.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            this.bbiSendFile.Caption = "Send via E-Mail...";
-            this.bbiSendFile.Command = DevExpress.XtraPrinting.PrintingSystemCommand.SendFile;
-            this.bbiSendFile.Enabled = false;
-            this.bbiSendFile.Hint = "Send via E-Mail...";
-            this.bbiSendFile.Id = 31;
-            this.bbiSendFile.Name = "bbiSendFile";
-            // 
             // bbiClosePreview
             // 
             this.bbiClosePreview.Caption = "E&xit";
@@ -637,7 +624,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiPrint),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiPrintDirect),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiExportFile, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSendFile),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiClosePreview, true)});
             this.miFile.Name = "miFile";
             // 
@@ -704,7 +690,7 @@
             this.printPreviewBarCheckItem1.Checked = true;
             this.printPreviewBarCheckItem1.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportPdf;
             this.printPreviewBarCheckItem1.Enabled = false;
-            this.printPreviewBarCheckItem1.GroupIndex = 2;
+            this.printPreviewBarCheckItem1.GroupIndex = 1;
             this.printPreviewBarCheckItem1.Hint = "PDF File";
             this.printPreviewBarCheckItem1.Id = 40;
             this.printPreviewBarCheckItem1.Name = "printPreviewBarCheckItem1";
@@ -714,7 +700,7 @@
             this.printPreviewBarCheckItem2.Caption = "HTML File";
             this.printPreviewBarCheckItem2.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportHtm;
             this.printPreviewBarCheckItem2.Enabled = false;
-            this.printPreviewBarCheckItem2.GroupIndex = 2;
+            this.printPreviewBarCheckItem2.GroupIndex = 1;
             this.printPreviewBarCheckItem2.Hint = "HTML File";
             this.printPreviewBarCheckItem2.Id = 41;
             this.printPreviewBarCheckItem2.Name = "printPreviewBarCheckItem2";
@@ -724,7 +710,7 @@
             this.printPreviewBarCheckItem3.Caption = "MHT File";
             this.printPreviewBarCheckItem3.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportMht;
             this.printPreviewBarCheckItem3.Enabled = false;
-            this.printPreviewBarCheckItem3.GroupIndex = 2;
+            this.printPreviewBarCheckItem3.GroupIndex = 1;
             this.printPreviewBarCheckItem3.Hint = "MHT File";
             this.printPreviewBarCheckItem3.Id = 42;
             this.printPreviewBarCheckItem3.Name = "printPreviewBarCheckItem3";
@@ -734,7 +720,7 @@
             this.printPreviewBarCheckItem4.Caption = "RTF File";
             this.printPreviewBarCheckItem4.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportRtf;
             this.printPreviewBarCheckItem4.Enabled = false;
-            this.printPreviewBarCheckItem4.GroupIndex = 2;
+            this.printPreviewBarCheckItem4.GroupIndex = 1;
             this.printPreviewBarCheckItem4.Hint = "RTF File";
             this.printPreviewBarCheckItem4.Id = 43;
             this.printPreviewBarCheckItem4.Name = "printPreviewBarCheckItem4";
@@ -744,7 +730,7 @@
             this.printPreviewBarCheckItem5.Caption = "DOCX File";
             this.printPreviewBarCheckItem5.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportDocx;
             this.printPreviewBarCheckItem5.Enabled = false;
-            this.printPreviewBarCheckItem5.GroupIndex = 2;
+            this.printPreviewBarCheckItem5.GroupIndex = 1;
             this.printPreviewBarCheckItem5.Hint = "DOCX File";
             this.printPreviewBarCheckItem5.Id = 44;
             this.printPreviewBarCheckItem5.Name = "printPreviewBarCheckItem5";
@@ -754,7 +740,7 @@
             this.printPreviewBarCheckItem6.Caption = "XLS File";
             this.printPreviewBarCheckItem6.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportXls;
             this.printPreviewBarCheckItem6.Enabled = false;
-            this.printPreviewBarCheckItem6.GroupIndex = 2;
+            this.printPreviewBarCheckItem6.GroupIndex = 1;
             this.printPreviewBarCheckItem6.Hint = "XLS File";
             this.printPreviewBarCheckItem6.Id = 45;
             this.printPreviewBarCheckItem6.Name = "printPreviewBarCheckItem6";
@@ -764,7 +750,7 @@
             this.printPreviewBarCheckItem7.Caption = "XLSX File";
             this.printPreviewBarCheckItem7.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportXlsx;
             this.printPreviewBarCheckItem7.Enabled = false;
-            this.printPreviewBarCheckItem7.GroupIndex = 2;
+            this.printPreviewBarCheckItem7.GroupIndex = 1;
             this.printPreviewBarCheckItem7.Hint = "XLSX File";
             this.printPreviewBarCheckItem7.Id = 46;
             this.printPreviewBarCheckItem7.Name = "printPreviewBarCheckItem7";
@@ -774,7 +760,7 @@
             this.printPreviewBarCheckItem8.Caption = "CSV File";
             this.printPreviewBarCheckItem8.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportCsv;
             this.printPreviewBarCheckItem8.Enabled = false;
-            this.printPreviewBarCheckItem8.GroupIndex = 2;
+            this.printPreviewBarCheckItem8.GroupIndex = 1;
             this.printPreviewBarCheckItem8.Hint = "CSV File";
             this.printPreviewBarCheckItem8.Id = 47;
             this.printPreviewBarCheckItem8.Name = "printPreviewBarCheckItem8";
@@ -784,7 +770,7 @@
             this.printPreviewBarCheckItem9.Caption = "Text File";
             this.printPreviewBarCheckItem9.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportTxt;
             this.printPreviewBarCheckItem9.Enabled = false;
-            this.printPreviewBarCheckItem9.GroupIndex = 2;
+            this.printPreviewBarCheckItem9.GroupIndex = 1;
             this.printPreviewBarCheckItem9.Hint = "Text File";
             this.printPreviewBarCheckItem9.Id = 48;
             this.printPreviewBarCheckItem9.Name = "printPreviewBarCheckItem9";
@@ -794,7 +780,7 @@
             this.printPreviewBarCheckItem10.Caption = "Image File";
             this.printPreviewBarCheckItem10.Command = DevExpress.XtraPrinting.PrintingSystemCommand.ExportGraphic;
             this.printPreviewBarCheckItem10.Enabled = false;
-            this.printPreviewBarCheckItem10.GroupIndex = 2;
+            this.printPreviewBarCheckItem10.GroupIndex = 1;
             this.printPreviewBarCheckItem10.Hint = "Image File";
             this.printPreviewBarCheckItem10.Id = 49;
             this.printPreviewBarCheckItem10.Name = "printPreviewBarCheckItem10";
@@ -891,7 +877,7 @@
             this.printPreviewBarCheckItem19.Id = 58;
             this.printPreviewBarCheckItem19.Name = "printPreviewBarCheckItem19";
             // 
-            // FrmRptOrderDetails
+            // FrmReportDefault
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -902,9 +888,8 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "FrmRptOrderDetails";
+            this.Name = "FrmReportDefault";
             this.ShowIcon = false;
-            this.Text = "Order Details Report";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -951,7 +936,6 @@
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiFillBackground;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiWatermark;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiExportFile;
-        private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiSendFile;
         private DevExpress.XtraPrinting.Preview.PrintPreviewBarItem bbiClosePreview;
         private DevExpress.XtraPrinting.Preview.PrintPreviewStaticItem printPreviewStaticItem1;
         private DevExpress.XtraPrinting.Preview.ProgressBarEditItem progressBarEditItem1;
